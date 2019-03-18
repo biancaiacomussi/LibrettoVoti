@@ -1,5 +1,6 @@
 package it.polito.tdp.libretto;
 
+import java.awt.List;
 import java.time.LocalDate;
 
 public class TestLibretto {
@@ -19,6 +20,9 @@ public class TestLibretto {
 		libr.add(26, "Sistemi elettrici", LocalDate.of(2019, 1, 6));
 		libr.add(27, "Diritto privato", LocalDate.of(2018, 6, 19));
 
+		
+		List<Voto> venticinque = libr.cercaVoti(25);
+		System.out.println(venticinque);
 	}
 
 }
