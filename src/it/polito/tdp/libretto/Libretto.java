@@ -15,8 +15,22 @@ public class Libretto {
 		
 	}
 
-	public void add(Voto v) { //meglio questo metodo
-		voti.add(v);
+	/**
+	 * Aggiunge un nuovo voto al libretto
+	 * @param v il {@link Voto} da aggiungere
+	 * @return {@code true} nel caso normale, {@code false} se il voto esisteva già
+	 * oppure era in conflitto
+	 */
+	public boolean add(Voto v) { //meglio questo metodo
+		
+		if(!this.esisteGiaVoto(v) && !this.votoConflitto(v)) {
+		voti.add(v); //add ritorna un boolean true se la collection è cambiata
+		//add su una lista restituisce sempre true
+		
+		return true;
+		}else {
+			return false;
+		}
 	}
 	
 	/*public void stampaVoti(int voto) {
@@ -92,5 +106,28 @@ public class Libretto {
 		}else {
 			return false;
 		}*/
+	}
+	
+	/**
+	 * Mi dice se il {@link Voto} {@code v} è in conflitto con uno dei voti
+	 * esistenti. Se il voto non esiste, non c'è conflitto. Se esiste ed ha un punteggio diverso,
+	 * c'è conflitto.
+	 * @param v
+	 * @return {@code true} se il voto esiste ed ha un punteggio diverso,
+	 * {@code false} se il voto non esiste, oppure esiste ma ha lo stesso punteggio
+	 */
+	
+	public boolean votoConflitto(Voto v) {
+		int pos = this.voti.indexOf(v);
+		if(pos==-1) return false;
+		
+		else 
+			return (v.getPunti() != this.voti.get(pos).getPunti());
+				
+		
+	}
+	
+	public String toString() {
+		return this.voti.toString();
 	}
 }
