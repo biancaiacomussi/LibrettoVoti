@@ -5,6 +5,7 @@ import java.util.*;
 
 public class Libretto {
 	
+	
 	private List<Voto> voti; //un'arrayList vuota e null sono due cose diverse
 	
 	public Libretto() {
@@ -18,13 +19,13 @@ public class Libretto {
 	/**
 	 * Aggiunge un nuovo voto al libretto
 	 * @param v il {@link Voto} da aggiungere
-	 * @return {@code true} nel caso normale, {@code false} se il voto esisteva già
+	 * @return {@code true} nel caso normale, {@code false} se il voto esisteva giï¿½
 	 * oppure era in conflitto
 	 */
 	public boolean add(Voto v) { //meglio questo metodo
 		
 		if(!this.esisteGiaVoto(v) && !this.votoConflitto(v)) {
-		voti.add(v); //add ritorna un boolean true se la collection è cambiata
+		voti.add(v); //add ritorna un boolean true se la collection ï¿½ cambiata
 		//add su una lista restituisce sempre true
 		
 		return true;
@@ -59,11 +60,11 @@ public class Libretto {
 	}
 	
 	/**
-	 * Ricerca un {@link Voto} relativo al corso di cui è specificato il nome
+	 * Ricerca un {@link Voto} relativo al corso di cui ï¿½ specificato il nome
 	 * @param nomeEsame nome del corso da ricercare
 	 * @return il {@link Voto}
 	 */
-	public Voto cercaEsame(String nomeEsame) { //si può fare con contains e indexOf
+	public Voto cercaEsame(String nomeEsame) { //si puï¿½ fare con contains e indexOf
 		/*for(Voto v : this.voti) {
 			if(v.getCorso().equals(nomeEsame)) { //con == confronto la posizione in memoria
 				return v;
@@ -76,7 +77,7 @@ public class Libretto {
 		
 		Voto voto = new Voto(0, nomeEsame, null);
 		int pos = this.voti.indexOf(voto);
-		if(pos==-1) //l'oggetto non è stato trovato
+		if(pos==-1) //l'oggetto non ï¿½ stato trovato
 			return null;
 		 else
 			return this.voti.get(pos);
@@ -84,7 +85,7 @@ public class Libretto {
 	}
 	
 	/**
-	 * Dato un {@link Voto} determina se esiste già un voto con uguale corso e uguale punteggio
+	 * Dato un {@link Voto} determina se esiste giï¿½ un voto con uguale corso e uguale punteggio
 	 * @param v
 	 * @return {@code true} se ha trovato un corso e punteggio uguali
 	 * 			{@code false} se non ha trovato il corso oppure l'ha trovato con voto diverso
@@ -109,9 +110,9 @@ public class Libretto {
 	}
 	
 	/**
-	 * Mi dice se il {@link Voto} {@code v} è in conflitto con uno dei voti
-	 * esistenti. Se il voto non esiste, non c'è conflitto. Se esiste ed ha un punteggio diverso,
-	 * c'è conflitto.
+	 * Mi dice se il {@link Voto} {@code v} ï¿½ in conflitto con uno dei voti
+	 * esistenti. Se il voto non esiste, non c'ï¿½ conflitto. Se esiste ed ha un punteggio diverso,
+	 * c'ï¿½ conflitto.
 	 * @param v
 	 * @return {@code true} se il voto esiste ed ha un punteggio diverso,
 	 * {@code false} se il voto non esiste, oppure esiste ma ha lo stesso punteggio
